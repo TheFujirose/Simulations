@@ -1,27 +1,38 @@
 package animation;
 
-import java.awt.Graphics2D;
-
 /**
- * Controls animations.
+ * Represents animation that starts, stops, pauses, and runs. 
+ * 
+ * @author Carson Fujita
+ * @since 1.0
  */
 public interface Animated extends Runnable {
 
 	/**
-	 * Starts the animation thread
+	 * Starts the animation.
+	 * @since 1.0
+	 * @see #stop()
 	 */
 	void start();
 
 	/**
-	 * Stops the animation thread
+	 * Stops the animation thread.
+	 * @since 1.0
+	 * @see #start()
 	 */
 	void stop();
-
+	
 	/**
-	 * Prints the animation
-	 * @param g - the graphics to print the animation on
+	 * Pauses the animation thread.
+	 * @since 1.0
+	 * @see #resume()
 	 */
-	void paint(Graphics2D g);
-
-	void setFrame(AnimationFrame animationFrame);
+	void pause();
+	
+	/**
+	 * Resumes the animation from a pause.
+	 * @since 1.0
+	 * @see #pause()
+	 */
+	void resume();
 }

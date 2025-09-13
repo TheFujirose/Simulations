@@ -3,75 +3,59 @@
  */
 package animation;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.HeadlessException;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JFrame;
 
 /**
- *  Renders the animation.
+ * Defines a class that frames an animation for viewing.
+ * @since 1.0
  */
 public class AnimationFrame extends JFrame {
 
 	private static final long serialVersionUID = -3611290876909079204L;
 	
 	/**
-	 * A screen required to prevent flashing issues with Java animation
+	 * The animation panel that will be rendered onto this {@link java.swing.JFrame}.
+	 * @since 1.0
 	 */
-	private BufferedImage offscreen;
+	private final Animation animation;
 	
 	/**
-	 * An optional background image
+	 * The thread that runs the animation.
+	 * @see #animation
+	 * @since 1.0
 	 */
-	private BufferedImage background;
+	private Thread animationThread;
+	
 	
 	/**
-	 * a buffered graphics of {@link AnimationFrame#offscreen} for rendering the animation
-	 */
-	private Graphics2D bufferGraphics;
-	
-	/**
-	 * The animation to render.
-	 */
-	private Animated animation;
-	
-	/**
+	 * Creates a standard animation frame with a {@code width} of {@code 400}
+	 * and height of {@code 400}. Uses a specified name and animation.
+	 * @param name - name of frame
+	 * @param animation - the animation displayed on frame
 	 * @throws HeadlessException
+	 * @since 1.0
 	 */
-	public AnimationFrame(String name, int width, int height, Animated animation){
+	 public AnimationFrame(String name, Animation animation){
 		super(name);
-		setSize(width, height);
 		this.animation = animation;
-		this.animation.setFrame(this);
-		
-		//Set the rendering hints for vector graphics
-		RenderingHints rh = new RenderingHints(
-	             RenderingHints.KEY_TEXT_ANTIALIASING,
-	             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		//Offscreen needed to prevent flashing
-		offscreen = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-		
-		//buffer
-		bufferGraphics = (Graphics2D) offscreen.createGraphics();
-		bufferGraphics.setRenderingHints(rh);
+		add(this.animation);
 	}	
-
-	@Override
-	public void paint(Graphics g) {
-		if(background != null) {
-			bufferGraphics.drawImage(background, 0, 0, getWidth(), getHeight(), this);
-		}
-		animation.paint(bufferGraphics);
-		g.drawImage(offscreen, 0,0, this);
+	 
+	/**
+	 * Begins the animation thread.
+	 * @since 1.0
+	 */
+	public void start() {
+		animationThread = new Thread(animation);
+		animationThread.start();
 	}
 	
-	@Override
-	public void update(Graphics g) {
-		paint(g);
+	/**
+	 * Stops the animation.
+	 * @since 1.0
+	 */
+	public void stop() {
+		animation.stop();
 	}
 }
