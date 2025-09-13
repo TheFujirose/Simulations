@@ -195,4 +195,24 @@ public class Vector2D extends Point2D implements Serializable {
 		y += v2.y;
 		x += v2.x;
 	}
+
+	/**
+	 * Negates the x-coordinate of this {@code Vector2D}
+	 * effectively reversing it.
+	 * @see #negateY()
+	 * @since 1.0
+	 */
+	public void negateX() {
+		x *= -1;
+	}
+	
+	/**
+	 * Negates the y-coordinate of this {@code Vector2D}
+	 * effectively reversing it.
+	 * @see #negateX()
+	 * @since 1.0 
+	 */
+	public void negateY() {
+		y *= -1;
+	}
 }
