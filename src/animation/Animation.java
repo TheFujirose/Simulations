@@ -51,6 +51,29 @@ public abstract class Animation extends JPanel  implements Animated {
 	private long sleep_duration = (long) 16.67; 
 
 	/**
+	 * The frames per second value of this {@value Animation}.
+	 */
+	private volatile float fps;
+	
+	/**
+	 * The previous time stamp from rendering the animation.
+	 * Used for calculating elapsed time and frames per second
+	 * @see #update()
+	 * @see #fps
+	 * @since 1.0
+	 */
+	private long previousTime = System.nanoTime();
+	
+	/**
+	 * The amount of frames printed since the {@link #previousTime}.
+	 * Used for calculating frames per secound in {@link #update()}
+	 * @see #update()
+	 * @see #previousTime
+	 * @since 1.0
+	 */
+	private int frames;
+	
+	/**
 	 * Creates an empty {@code Animation}.
 	 * @since 1.0
 	 */
@@ -101,12 +124,24 @@ public abstract class Animation extends JPanel  implements Animated {
 	 * 
 	 * @since 1.0
 	 */
-	public abstract void update();
+	public void update() {
+		long current = System.nanoTime();
+		long elapsed = current - previousTime;
+		
+		//more than a second
+		if(elapsed >= 1_000_000_000L) { 
+			//convert to seconds
+			fps = (float) frames * 1_000_000_000L / elapsed;
+			frames = 0;
+			previousTime = current;
+		}
+	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		render((Graphics2D) g);
+		frames++;
 	}
 	
 	@Override
@@ -179,4 +214,11 @@ public abstract class Animation extends JPanel  implements Animated {
 		sleep_duration = (long) 1000 / target_fps;
 	}
 
+	/**
+	 * @return the last calculated FPS value from the animation.
+	 * @since 1.0
+	 */
+	public float getFPS() {
+		return fps;
+	}
 }
