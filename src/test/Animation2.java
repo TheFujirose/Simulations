@@ -1,9 +1,12 @@
 package test;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.MouseInfo;
 import java.awt.Point;
+
+import javax.swing.JLabel;
 
 import animation.Animation;
 import animation.AnimationFrame;
@@ -21,11 +24,13 @@ public class Animation2 extends Animation {
 	private Mover list[] = new Mover[AMOUNT];
 	private NoiseGenerator noise;
 	private AnimationFrame frame;
-	
+	private JLabel labelFPS;
 	public Animation2() {
 		super();
+		labelFPS = new JLabel("test");
 		frame = new AnimationFrame("test2", this);
-		frame.setVisible(true);
+		frame.add(labelFPS, BorderLayout.NORTH);
+		
 		frame.setSize(WIDTH, HEIGHT);
 		noise = new NoiseGenerator();
 		for (int i = 0; i < AMOUNT; i++) {
@@ -38,7 +43,8 @@ public class Animation2 extends Animation {
 
 	@Override
 	public void start() {
-		frame.start();
+		frame.start(BorderLayout.CENTER);
+		frame.setVisible(true);
 	}
 
 	@Override
@@ -51,6 +57,7 @@ public class Animation2 extends Animation {
 
 	@Override
 	public void update() {
+		super.update();
 		// TODO Auto-generated method stub
 		Point mouse = MouseInfo.getPointerInfo().getLocation();
 		Vector2D dir; // direction to mouse
@@ -62,6 +69,7 @@ public class Animation2 extends Animation {
 
 			m.update();
 		}
+		labelFPS.setText(Float.toString(getFPS()));
 	}
 
 	public static void main(String[] args) {
