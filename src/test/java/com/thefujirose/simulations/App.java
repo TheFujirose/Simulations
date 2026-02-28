@@ -1,4 +1,4 @@
-package test;
+package com.thefujirose.simulations;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,13 +8,13 @@ import java.awt.Point;
 
 import javax.swing.JLabel;
 
-import animation.Animation;
-import animation.AnimationFrame;
-import math.Vector2D;
-import noise.NoiseGenerator;
-import physics.Mover;
+import com.thefujirose.simulations.animation.Animation;
+import com.thefujirose.simulations.animation.AnimationFrame;
+import com.thefujirose.simulations.math.Vector2D;
+import com.thefujirose.simulations.noise.NoiseGenerator;
+import com.thefujirose.simulations.physics.Mover;
 
-public class Animation2 extends Animation {
+public class App extends Animation {
 	private static final long serialVersionUID = -4566726150376732219L;
 	public static int AMOUNT = 100;
 	public static int WIDTH = 1000;
@@ -25,7 +25,7 @@ public class Animation2 extends Animation {
 	private NoiseGenerator noise;
 	private AnimationFrame frame;
 	private JLabel labelFPS;
-	public Animation2() {
+	public App() {
 		super();
 		labelFPS = new JLabel("test");
 		frame = new AnimationFrame("test2", this);
@@ -73,7 +73,7 @@ public class Animation2 extends Animation {
 	}
 
 	public static void main(String[] args) {
-		Animation2 animation = new Animation2();
+		App animation = new App();
 		animation.start();
 
 	}

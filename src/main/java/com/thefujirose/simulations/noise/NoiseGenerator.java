@@ -1,4 +1,4 @@
-package noise;
+package com.thefujirose.simulations.noise;
 
 import java.util.Random;
 /**

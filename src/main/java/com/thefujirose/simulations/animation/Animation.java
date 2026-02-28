@@ -1,4 +1,4 @@
-package animation;
+package com.thefujirose.simulations.animation;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -56,7 +56,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	private volatile float fps;
 	
 	/**
-	 * The previous time stamp from rendering the animation.
+	 * The previous time stamp from rendering the main.java.com.thefujirose.simulations.app.animation.
 	 * Used for calculating elapsed time and frames per second
 	 * @see #update()
 	 * @see #fps
@@ -82,7 +82,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	}
 
 	/**
-	 * Creates a empty animation with a specified layout.
+	 * Creates a empty main.java.com.thefujirose.simulations.app.animation with a specified layout.
 	 * @param layout - specified layout
 	 * @since 1.0
 	 */
@@ -91,7 +91,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	}
 	
 	/**
-	 * Creates a empty animation. Determines if double buffered.
+	 * Creates a empty main.java.com.thefujirose.simulations.app.animation. Determines if double buffered.
 	 * @param isDoubleBuffered - true if double buffered
 	 * @since 1.0
 	 */
@@ -112,7 +112,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	
 	
 	/**
-	 * Renders a frame of animation onto the specified {@code Graphics2D} object.
+	 * Renders a frame of main.java.com.thefujirose.simulations.app.animation onto the specified {@code Graphics2D} object.
 	 * 
 	 * @param g - the specified {@code Graphics2D} object.
 	 */
@@ -120,7 +120,7 @@ public abstract class Animation extends JPanel  implements Animated {
 
 	
 	/**
-	 * Updates animation parameters and state.
+	 * Updates main.java.com.thefujirose.simulations.app.animation parameters and state.
 	 * 
 	 * @since 1.0
 	 */
@@ -177,7 +177,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	}
 
 	/**
-	 * Pauses the animation.
+	 * Pauses the main.java.com.thefujirose.simulations.app.animation.
 	 * @since 1.0
 	 * @see #paused
 	 * @see #resume()
@@ -189,7 +189,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	}
 
 	/**
-	 * Resumes the animation.
+	 * Resumes the main.java.com.thefujirose.simulations.app.animation.
 	 * @since 1.0
 	 * @see #paused
 	 * @see #pause()
@@ -215,7 +215,7 @@ public abstract class Animation extends JPanel  implements Animated {
 	}
 
 	/**
-	 * @return the last calculated FPS value from the animation.
+	 * @return the last calculated FPS value from the main.java.com.thefujirose.simulations.app.animation.
 	 * @since 1.0
 	 */
 	public float getFPS() {
