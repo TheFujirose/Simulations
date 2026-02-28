@@ -1,14 +1,14 @@
 /**
  * 
  */
-package physics;
+package com.thefujirose.simulations.physics;
 
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-import math.Vector2D;
+import com.thefujirose.simulations.math.Vector2D;
 
 /**
  * a Class the defines a movable ball with acceleration, velocity, 

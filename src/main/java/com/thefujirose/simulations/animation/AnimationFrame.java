@@ -1,13 +1,13 @@
 /**
  * 
  */
-package animation;
+package com.thefujirose.simulations.animation;
 
 import java.awt.HeadlessException;
 import javax.swing.JFrame;
 
 /**
- * Defines a class that frames an animation for viewing.
+ * Defines a class that frames an main.java.com.thefujirose.simulations.app.animation for viewing.
  * 
  * @since 1.0
  */
@@ -16,7 +16,7 @@ public class AnimationFrame extends JFrame {
 	private static final long serialVersionUID = -3611290876909079204L;
 
 	/**
-	 * The animation panel that will be rendered onto this
+	 * The main.java.com.thefujirose.simulations.app.animation panel that will be rendered onto this
 	 * {@link java.swing.JFrame}.
 	 * 
 	 * @since 1.0
@@ -24,7 +24,7 @@ public class AnimationFrame extends JFrame {
 	private final Animation animation;
 
 	/**
-	 * The thread that runs the animation.
+	 * The thread that runs the main.java.com.thefujirose.simulations.app.animation.
 	 * 
 	 * @see #animation
 	 * @since 1.0
@@ -32,11 +32,11 @@ public class AnimationFrame extends JFrame {
 	private Thread animationThread;
 
 	/**
-	 * Creates a standard animation frame with a {@code width} of {@code 400} and
-	 * height of {@code 400}. Uses a specified name and animation.
+	 * Creates a standard main.java.com.thefujirose.simulations.app.animation frame with a {@code width} of {@code 400} and
+	 * height of {@code 400}. Uses a specified name and main.java.com.thefujirose.simulations.app.animation.
 	 * 
 	 * @param name      - name of frame
-	 * @param animation - the animation displayed on frame
+	 * @param animation - the main.java.com.thefujirose.simulations.app.animation displayed on frame
 	 * @throws HeadlessException
 	 * @since 1.0
 	 */
@@ -46,7 +46,7 @@ public class AnimationFrame extends JFrame {
 	}
 
 	/**
-	 * Begins animation thread.
+	 * Begins main.java.com.thefujirose.simulations.app.animation thread.
 	 * @since 1.0
 	 */
 	public void start() {
@@ -57,7 +57,7 @@ public class AnimationFrame extends JFrame {
 	}
 
 	/**
-	 * Begins the animation thread with specified layout.
+	 * Begins the main.java.com.thefujirose.simulations.app.animation thread with specified layout.
 	 * @param layout - the specified layout
 	 * @since 1.0
 	 */
@@ -69,7 +69,7 @@ public class AnimationFrame extends JFrame {
 	}
 
 	/**
-	 * Stops the animation.
+	 * Stops the main.java.com.thefujirose.simulations.app.animation.
 	 * 
 	 * @since 1.0
 	 */
